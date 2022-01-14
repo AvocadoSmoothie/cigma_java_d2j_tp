@@ -3,6 +3,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import presentation.ClientController;
 
+import java.util.List;
+
 public class Start {
     public static void main(String[] args) {
         ApplicationContext context= new
@@ -15,6 +17,10 @@ public class Start {
         Client c4 = ctrl.save(new Client("FARAH"));
 // Test modify use case for client with id==1
         ctrl.modify(new Client(c1.getId(),"new Name_"));
+        List<Client> clients = ctrl.getAll();
+        for(Client client: clients) {
+            System.out.println(client);
+        }
     }
 
 }

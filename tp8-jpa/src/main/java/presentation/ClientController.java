@@ -4,6 +4,8 @@ import dao.IClientDao;
 import model.Client;
 import service.IClientService;
 
+import java.util.List;
+
 public class ClientController {
     IClientService service;
 
@@ -17,5 +19,9 @@ public class ClientController {
 
     public void modify(Client c){
         service.modify(c);
+    }
+
+    public List<Client> getAll() {
+        return service.getAll();
     }
 }
