@@ -12,6 +12,15 @@
         <property name="service" ref="service"/>
     </bean>
 
+    <bean id="factureDao" class="dao.FactureDaoImpl">
+    </bean>
+
+    <bean id="factureService" class="service.IFactureServiceImpl">
+        <property name="dao" ref="factureDao"/>
+    </bean>
+    <bean id="factureController" class="presentation.FactureController">
+        <property name="service" ref="factureService"/>
+    </bean>
 
 
 </beans>

@@ -9,6 +9,6 @@ public interface IClientDao {
     Client save(Client c);
     Client update(Client c);
     List<Client> findAll();
-
+    void deleteById(long id);
 }
 

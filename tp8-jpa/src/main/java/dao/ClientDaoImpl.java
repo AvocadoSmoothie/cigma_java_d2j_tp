@@ -30,6 +30,14 @@ public class ClientDaoImpl implements IClientDao {
     }
 
     @Override
+    public void deleteById(long idClient) {
+        em.getTransaction().begin();
+        Client clientInDataBase = em.find(Client.class,idClient);
+        em.remove(clientInDataBase);
+        em.getTransaction().commit();
+    }
+
+    @Override
     public List<Client> findAll() {
         return em.createQuery("from TClients ", Client.class).getResultList();
     }
