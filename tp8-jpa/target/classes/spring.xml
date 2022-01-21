@@ -23,13 +23,4 @@
     </bean>
 
 
-    <bean id="addressDao" class="dao.AddressDaoImpl">
-    </bean>
-
-    <bean id="addressService" class="service.IAddressServiceImpl">
-        <property name="dao" ref="addressDao"/>
-    </bean>
-    <bean id="addressController" class="presentation.AddressController">
-        <property name="service" ref="addressService"/>
-    </bean>
 </beans>

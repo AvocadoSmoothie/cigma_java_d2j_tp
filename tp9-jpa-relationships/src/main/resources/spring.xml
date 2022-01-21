@@ -1,0 +1,25 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+    <bean id="clientDao" class="dao.ClientDaoImpl">
+    </bean>
+
+    <bean id="clientService" class="service.ClientServiceImpl">
+        <property name="dao" ref="clientDao"/>
+    </bean>
+    <bean id="clientController" class="presentation.ClientController">
+        <property name="service" ref="clientService"/>
+    </bean>
+
+    <bean id="factureDao" class="dao.FactureDaoImpl">
+    </bean>
+
+    <bean id="factureService" class="service.IFactureServiceImpl">
+        <property name="dao" ref="factureDao"/>
+    </bean>
+    <bean id="factureController" class="presentation.FactureController">
+        <property name="service" ref="factureService"/>
+    </bean>
+
+</beans>

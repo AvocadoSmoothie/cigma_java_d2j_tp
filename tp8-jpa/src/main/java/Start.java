@@ -2,6 +2,7 @@ import model.Client;
 import model.Facture;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import presentation.AddressController;
 import presentation.ClientController;
 import presentation.FactureController;
 
@@ -15,6 +16,13 @@ public class Start {
         testClient(context);
         testFacture(context);
 
+        testClientWithAddress(context);
+
+    }
+
+    private static void testClientWithAddress(ApplicationContext context) {
+
+        AddressController controller = (AddressController) context.getBean("addressController");
     }
 
     private static void testFacture(ApplicationContext context) {

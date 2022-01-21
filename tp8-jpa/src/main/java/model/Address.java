@@ -4,45 +4,40 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Date;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @Entity
-public class Facture {
-
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "col_date")
-    private Date date;
 
     @Column
-    private Double amount;
+    private String description;
 
-    public Facture() {
+    @ManyToOne(cascade = {})
+    private Client client;
+
+    public Address() {
     }
 
-
-    public Facture(Date date, Double amount) {
-        this.date = date;
-        this.amount = amount;
+    public Address(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
-        return "Facture{" +
+        return "Address{" +
                 "id=" + id +
-                ", date=" + date +
-                ", amount=" + amount +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
