@@ -14,4 +14,6 @@ public interface IClientService {
     Client getOne(long id);
 
     List<Client> findByName(String name);
+
+    void delete(long id);
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ClientServiceImpl implements IClientService {
@@ -40,5 +39,12 @@ public class ClientServiceImpl implements IClientService {
     @Override
     public List<Client> findByName(String name) {
         return dao.findByName(name);
+    }
+
+    @Override
+    @Transactional
+    public void delete(long id) {
+        Client client = getOne(id);
+        dao.delete(client);
     }
 }

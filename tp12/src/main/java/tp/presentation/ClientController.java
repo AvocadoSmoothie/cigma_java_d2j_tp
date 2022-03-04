@@ -1,5 +1,6 @@
 package tp.presentation;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +41,10 @@ public class ClientController {
     @GetMapping("/{id}")
     public Client getOne(@PathVariable("id") long id) {
         return service.getOne(id);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteOne(@PathVariable("id") long id) {
+         service.delete(id);
     }
 
     @GetMapping("/search")
